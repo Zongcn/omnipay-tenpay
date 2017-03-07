@@ -14,7 +14,7 @@ class TenpayController extends Yaf_Controller_Abstract
         $gateway->setReturnUrl($_POST['return_url']);
         $gateway->setNotifyUrl($_POST['notify_url']);
         $response = $gateway->purchase($_POST)->send();
-	$this->redirect($response->getRedirectUrl());
+        $this->redirect($response->getRedirectUrl());
         return false;
     }
 
@@ -40,7 +40,7 @@ class TenpayController extends Yaf_Controller_Abstract
                     if ($notifyData['trade_state'] == 0 && $queryData['retcode'] == 0) {
                         $tradeOrderInfo = GetTradeOrderDetailInfo($notifyData['out_trade_no']);
                         if (bccomp((float)$tradeOrderInfo->Amount, (float)$notifyData['total_fee'], 2) === 0) {
-				echo 'success';
+                                echo 'success';
                         }
                     }
                 }
