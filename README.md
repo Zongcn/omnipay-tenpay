@@ -20,7 +20,7 @@ class TenpayController extends Yaf_Controller_Abstract
 
     public function notifyAction()
     {
-	$config = Yaf_Registry::get('config');
+        $config = Yaf_Registry::get('config');
         $gateway = \Omnipay\Omnipay::create('Tenpay');
         $gateway->setPartner($config['tenpay']['partner']);
         $gateway->setKey($config['tenpay']['key']);
